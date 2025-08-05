@@ -1,5 +1,8 @@
+from django.shortcuts import render,redirect
 from requests
-from django.shortcuts import render
+from .forms import ContactFrom
+
+
 
 
 def homepage(request):
@@ -8,7 +11,19 @@ def homepage(request):
 
     if response.status_code=200:
         menu_items=response.json()
-    return render(request,'menu/home.html',{'menu_items':menu_items})
+    
+    if request.method =='POST':
+        from=ContactFrom(request.POST)
+        if from.is_valid():
+            from.save()
+            return redirect('homepage')
+    else:
+        from=ContactFrom()
+    return render(request,'menu/home.html',{
+        'menu_items':menu_items,
+        'form':form,
+        ''
+    })
 
 
 # Create your views here.
