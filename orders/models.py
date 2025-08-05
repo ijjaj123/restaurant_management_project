@@ -9,6 +9,13 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return slef.name
+#Menu model
+class Menu(model.Menu):
+    name=models.CharField(max_length=100)
+    price=model.DecimalField(max_digits=8,decimal_places=2)
+
+    def __str__(self):
+        return self.name
 
 # Create your models here.
 class Order(models.Model):
