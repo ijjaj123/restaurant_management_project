@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Menu</title>
+    <style>
+    body{font-family:Arial,snas-serif;margin:40px;}
+    h1{color:#333;}
+    menu-item{
+        broder-bottom:1px solid #ddd;
+        padding:10px 0;
+    }
+    .item-name{
+        font-weight:bold;
+        font-size:1.2em;
+    }
+    .item-price{
+        float:right;
+        font-weight:bold
+    }
+    </style>
+</head>
+<body>
+    <h1>Restaurant Menu</h1>
+    <div id="menu">
+    </div>
+    <script>
+        fetch('/api/products/items/')
+        .then(response=>response.json())
+        .then(data =>{
+            const menuDiv=document.getElementById('menu');
+            if(data.length==0){
+                menuDiv.innerHTML='<p>No menu items avaliable.</p>';
+                return;
+            }
+            data.forEach(item=>{
+                const itemDiv=document.createElement('div');
+                itemDiv.classList.add('menu-item');
+                itemDiv.innerHTML='
+                <span class="item-name">${item.item_name}</span>
+                <span class="item-price">${item.item_price}</span>
+                <p class="item-descripition">${item.descripition}</p>
+                ';
+                menuDiv.appendChild(itemDiv);
+
+            });
+        })
+        .catch(()=>{
+            document.getElementById('menu').innerHTML='<p>Failed to load menu.</p>';
+        });
+    </script>
+</body>
+</html>
