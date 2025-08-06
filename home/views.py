@@ -1,6 +1,5 @@
 from django.shortcuts import render,redirect
 from .forms import ContactFrom
-import requests
 
 
 
