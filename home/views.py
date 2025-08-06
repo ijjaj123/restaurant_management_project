@@ -24,6 +24,8 @@ def homepage(request):
         'form':form
         
     })
+def thank_you_view(request):
+    return render(request,'menu/thank_you.html)
 
 
 # Create your views here.
