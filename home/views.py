@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .forms import ContactForm
 import requests
-form .models import MenuItem
+from .models import MenuItem
 
 def menu_page(request):
     menu_items=MenuItem.objects.all()
@@ -16,8 +16,8 @@ def homepage(request):
     
     if request.method =='POST':
         form=ContactForm(request.POST)
-        if from.is_valid():
-            from.save()
+        if form.is_valid():
+            form.save()
             return redirect('homepage')
     else:
         form=ContactForm()
