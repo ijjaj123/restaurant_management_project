@@ -13,19 +13,19 @@ def homepage(request):
         menu_items=response.json()
     
     if request.method =='POST':
-        from=ContactForm(request.POST)
+        form=ContactForm(request.POST)
         if from.is_valid():
             from.save()
             return redirect('homepage')
     else:
-        from=ContactForm()
-    return render(request,'menu/home.html',{
+        form=ContactForm()
+    return render(request,'menu/homepage.html',{
         'menu_items':menu_items,
         'form':form
         
     })
-def thank_you_view(request):
-    return render(request,'menu/thank_you.html)
+
+
 
 
 # Create your views here.
