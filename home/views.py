@@ -2,6 +2,11 @@ from django.shortcuts import render,redirect
 from .forms import ContactForm
 import requests
 from .models import MenuItem
+from django.conf import settings
+
+def homepage(request):
+    restaurant_name=settings.restaurant_name
+    return render(request,'ho')
 
 def menu_page(request):
     menu_items=MenuItem.objects.all()
