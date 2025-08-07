@@ -11,4 +11,7 @@ class Contact(models.Model):
 class MenuItem(models.Model):
     name=models.CharField(max_length=100)
     description=models.TextField(blank=True)
-    price
+    price=models.DecimalField(max_digit=6,decmial_places=2)
+
+    def __str__(self):
+        return self.name
