@@ -6,7 +6,9 @@ from django.conf import settings
 
 def homepage(request):
     restaurant_name=settings.restaurant_name
-    return render(request,'ho')
+    return render(request,'home page.html',{
+        'restaurant_name':restaurant_name,
+    })
 
 def menu_page(request):
     menu_items=MenuItem.objects.all()
