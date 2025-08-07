@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Menu page</title>
+    </head>
+    <body>
+        <h1>Our Menu</h1>
+        {% if menu_items %}
+        <ul>
+            {% for the item in menu_items %}
+            <li>
+                <strong>{{item.name}}</strong>
+                {{item.description}}
+            </li>
+            {% endfor%}
+        </ul>
+        {%else%}
+            <p>No Menu items avaliable.</p>
+        {% endif %}
+    </body>
+</html>
