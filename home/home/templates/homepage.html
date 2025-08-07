@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Restaurant Homepage</title>
+        <style>
+            body{
+                font-font-family:Arial,sans-serif;
+                margin:0;
+                padding:0;
+
+            }
+            header,footer{
+                background-color:#333;
+                color:white;
+                padding:20px;
+                text-align:center;
+
+            }
+            h1,h2{
+            margin:0 0 10px;
+            }
+            section{
+            padding: 40px 20px;
+            }
+            #menu ul{
+            list-style:none;
+            padding:0;
+            }
+            #menu li{
+            padding:10px 0;
+            font-size:18px;
+            border-bottom: 1px solid #ccc;
+
+            }
+            #restaurnt-address{
+            background-color:#f8f8f8;
+            border-top:1px  solid #ddd;
+            text-align: center;
+            }
+            #restaurnt-address h2{
+                font-size:28px;
+                margin-bottom:10px;
+            } 
+            #restaurnt-address p{
+            font-size:18px;
+            margin-bottom:20px;
+            }
+            #contact{
+            background-color:#f1f1f1;
+            }
+            #contact{
+             max-width:500px;
+             margin:0 auto;
+            }
+            #contact inpur, #contact textarea,#contact button{
+            display:black;
+            width:100%;
+            padding:10px;
+            margin-bottom:10px;
+            font-size:16px;
+            }
+            iframe{
+            broder:0,
+            width:100%;
+            height:40px;
+            max-width:800px;
+            margin:0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Welcome to our Restaurant</h1>
+        </header>
+
+        <section id="menu">
+            <h2>Our Menu</h2>
+            <ul>
+                {% for item in menu_items %}
+                    <li>{{item.name}}-${{item.price}}</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section id="restaurant-address">
+            <h2>Our Location</h2>
+            <p>Shaik Ijaj Ahmed Restaurant, 123 Main street,Banglore,karantaka,india</p>
+
+            <div>
+                <iframe
+                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.296905150332!2d77.5946!3d12.9716!2m31f0!3f0!3m2!1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670fd9bc56cb%3A0x6ce5s00a0b7c9e4!2sBangloree%2c%karanataka!5e0!3m2!1sen2sin!4v15918685652105m21sen!2sin"
+                   allowfullscreen=""
+                   loading="lazy"
+                   referrerpolicy="no-reffer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact US</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{from.as_p}}
+                <button type="submit">Send</button>
+            </form>
+        </section>
+
+        <footer>
+            <p>&copy;2025 Shaik Ijaj Ahmed Restaurant</p>
+        </footer>
+    </body>
+</html>
