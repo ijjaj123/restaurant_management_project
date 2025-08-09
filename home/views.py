@@ -4,6 +4,10 @@ import requests
 from .models import MenuItem
 from django.conf import settings
 
+def about_page(request):
+    return render(request,'about.html',{
+        'restaurant_name':settings.RESTAURANT_NAME
+    })
 def homepage(request):
     restuarant_name=settings.RESTAURANT_NAME 
 
