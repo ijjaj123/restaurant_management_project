@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>About Us -{{restaurant_name}}</title>
+        <link rel="stylesheet" href="{% static 'home/style.csss'%}">
+    </head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'homepage' %}">Home</a>
+            <a href="{% url 'about'%}">About</a>
+        </nav>
+        <h1>About{{restaurant_name}}</h1>
+    </header>
+<section>
+    <p>
+        Welcome to<strong>{{restaurant_name}}</strong>!
+        We pride ourselves on serving delicious,fresh prepared meals using best ingredientss.
+        Our chefs bring a passion for flavour and a decication to quality to every dish we server.
+        
+    </p>
+    <img src="{% static 'home/images/restaurant.png' %}"
+    alt="Our Restaurant"
+    style="max-width:600px; width:100%; border-radius:10px; margin-top:15px">
+</section>
+<footer>
+    <p>&copy;2025 {{restaurant_name}}</p>
+</footer>
+</body>
+</html>
+
+
+
+
