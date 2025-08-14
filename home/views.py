@@ -4,6 +4,9 @@ import requests
 from .models import MenuItem
 from django.conf import settings
 
+def contact_us(request):
+    return render(request,'home/contact.html')
+
 def about_page(request):
     return render(request,'about.html',{
         'restaurant_name':settings.RESTAURANT_NAME
