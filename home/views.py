@@ -3,7 +3,10 @@ from .forms import ContactForm
 import requests
 from .models import MenuItem
 from django.conf import settings
-
+def homepage(request):
+    return render(request,'homepage.html',{
+        'restaurant_name':'Tasty Bites'
+    })
 def contact_us(request):
     return render(request,'home/contact.html')
 
