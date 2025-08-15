@@ -3,6 +3,14 @@ from .forms import ContactForm
 import requests
 from .models import MenuItem
 from django.conf import settings
+from .models import RestaurantInfo
+
+def homepage(request):
+    info=RestaurantInfo.objects.first()
+    return render(request,'homepage.html',{
+        'restaurant_name':info.name if info else"Tasty Bites",
+        'phone_number':info.phone if info else "Not Available"
+    }) 
 def homepage(request):
     return render(request,'homepage.html',{
         'restaurant_name':'Tasty Bites'
