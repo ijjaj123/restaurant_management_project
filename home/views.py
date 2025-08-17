@@ -5,6 +5,9 @@ from .models import MenuItem
 from django.conf import settings
 from .models import RestaurantInfo
 
+def reservations(request):
+    return render(request,'reservations.html')
+
 def homepage(request):
     info=RestaurantInfo.objects.first()
     return render(request,'homepage.html',{
