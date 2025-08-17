@@ -1,0 +1,1 @@
+<img src="{% static 'home/images/logo.png'%}" alt="Restaurant Logo" class="logo">
