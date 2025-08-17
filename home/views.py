@@ -6,6 +6,22 @@ from django.conf import settings
 from .models import RestaurantInfo
 
 def reservations(request):
+    try:
+        reservation_list=Reservation.objects.all()
+        return render(request,'reservations.html',{'reservations':reservation_list})
+    except DatabaseError as e:
+        print(f"Database error:{e}")
+        return render(request,'reservations.html',{
+            'error_message':"sorry, We are unable to load reservations at the moment.please try again later."
+
+        })
+    except Exception as e:
+        print(f"Unexpected error:{e}")
+        return render(request,'reservations.html',{
+            'error_message': "Something went wrong .please try again later."
+        })
+
+def reservations(request):
     return render(request,'reservations.html')
 
 def homepage(request):
