@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{%block title %}Restaurant{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'home/style.css'%}">
+    </head>
+<body>
+    <header>
+        <h1>{{restaurant_name}}</h1>
+    </header>
+<main>
+    {% block content %}{% endblock %}
+</main>
+<footer style="text-align: center; margin-top:50px;padding:15px;background:#f1f1f1;color:#555;">
+    &copy;{{now|date:"Y"}}Restaurant.All rights reserved.
+</footer>
+</body>
+</html>
