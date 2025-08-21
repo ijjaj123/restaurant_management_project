@@ -10,7 +10,17 @@
     <h1>{{restaurant_name}}</h1>
     <p>Welcome to {{restaurant_name}}!Enjoy your meal.</p>
     <p>Call us:{{phone_number}}</p>
-    <body style="font-fmaily:Arial, sans-serif; background-colocr:#f8f9fa;margin:0;paddind:0;">
+    <body style="font-fmaily:Arial, sans-serif; background-colocr:#f8f9fa;margin:0;padding:0;">
+        <from method="GET" action='#' class="search-bar" style="margin:20px o";text-align:"center">
+            <input type="text"
+                   name="q"
+                   placeholder="search menu items..."
+                   style="padding:10px;width:250px; border-radius:8px; border:1px solid #ccc;">
+            <button type="submit"
+                    style="padding:10px 15px;border:none;background-color:#4CAF50;color:white; border-radius:8px; cursuor:pointer;">
+                search
+            </button>
+        </from>
 
         <header>
             <nav>
