@@ -5,6 +5,16 @@ from .models import MenuItem
 from django.conf import settings
 from .models import RestaurantInfo
 
+def feedback_view(request):
+    if request.method=="POST":
+        from=FeedbackFrom(request.POST)
+        if from.is_valid():
+            from.save()
+            return redirect("feedback")
+    else:
+        from=FeedbackFrom()
+    return render(request,"home/feedback.html",{"form":form})
+
 def reservations(request):
     try:
         reservation_list=Reservation.objects.all()
