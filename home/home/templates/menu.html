@@ -6,14 +6,20 @@
     <body>
         <h1>Our Menu</h1>
         {% if menu_items %}
-        <ul>
-            {% for the item in menu_items %}
-            <li>
-                <strong>{{item.name}}</strong>
-                {{item.description}}
-            </li>
+        <div class="menu-container">
+            {% for item in menu_items %}
+            <div class="menu-item">
+                {% if item.image %}
+                <img src="{{item.image.url}}" alt="{{item.name}}" width="200">
+                {% endif %}
+                <h3>{{item.name}}</h3>
+                <p>{{item.description}}</p>
+                <p><strong>Rs{{item.price}}</strong></p>
+            </div>
             {% endfor%}
-        </ul>
+        </div>
+        
+    
         {%else%}
             <p>No Menu items avaliable.</p>
         {% endif %}
