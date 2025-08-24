@@ -6,3 +6,4 @@ admin.site.register(Contact)
 @admin,register(MenuItem)
 class MenuItemAdmin(admin.ModelAdmin):
     list_display=("name","price","image")
+admin.site.register(RestaurantLocation)
