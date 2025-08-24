@@ -44,7 +44,14 @@ def homepage(request):
     return render(request,'homepage.html',{
         'restaurant_name':'Tasty Bites'
     })
-def contact_us(request):
+def contact_view(request):
+    if request.method=="POST":
+        form=ContactForm(request.POST)
+        if form.is_valid()
+        form.save()
+        return redirect("contact")
+    else:
+        form=ContactForm()
     return render(request,'home/contact.html')
 
 def about_page(request):
