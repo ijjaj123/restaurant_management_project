@@ -25,3 +25,5 @@ urlpatterns = [
     path('api/products/',include('products.urls')),
     path('api/orders/',include('orders.urls')),
 ]
+if settings.DEBUG:
+    urlpatterns+=static(seetings.MEDIA_DIR,document_root=seetings.MEDIA_ROOT)
