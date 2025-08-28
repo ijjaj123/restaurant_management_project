@@ -1,67 +1,39 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Contact Us</title>
         <link rel="stylesheet" href="{% static 'home/style.css'%}">
-        <style>
-            .contact-container{
-            max-width:600px;
-            margin:40px auto;
-            padding:20px;
-            background-color:white;
-            border-radius:8px;
-            box-shadow:0 2px 8px rgba(0,0,0,0.1);
-
-
-            }
-            h1{
-            text-align:center;
-            color:#007BFF;
-            margin-bottom:20px;
-            }
-            .contact-item{
-            margin-bottom:15px;
-            }
-            .label{
-            font-weight:bold;
-            color:#555;
-            }
-        </style>
     </head>
 <body>
-    <div class="contact-container">
-        <h1>Contact Us</h1>
-        <div class="contact-item">
-            <span class="label">Address:</span>123 Main street,Hyderabad,India
-        </div>
-        <div class="contact-item">
-            <span class="label">Phone:</span>+91 9876543210
-        </div>
-        <div class="contact-item">
-            <span class="label">Email:</span> Contact@restaurant.com 
-        </div>
-        <form id="contactForm" method="post">
-            {% csrf_token %}
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="your Name">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="your Email">
-            <label for="message">message:</label>
-            <textarea id="message" name="message" placeholder="Your Message"></textarea>
-            <button type="submit">Submit</button>
-        </form>
+    <h1>Contact US</h1>
+    {% if messages %}
+    <ul>
+        {% for message in message %}
+          <li>{{message}}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+<form method="post" novalidate>
+    {%csrf_token %}
+    <div>
+        <label for="{{form.name.id_for_label}}">Name</label>
+        {{form.name}}
+        {{form.email.errors}}
+    </div
+    <div>
+        <label for="{{form.subject.id_for_label}}">Subject</label>
+        {{form.subject}}
+        {{form.subject.errors}}
     </div>
-    <script>
-        document.getElementById("contactFrom").addEventListener("submit",function(event){
-        let name=document.getElementById("name").value.trim();
-        let email=document.getElementById("email").value.trim();
-        if (name=== "" || email===""){
-        alert("please fill in both Name and Email fileds before submitting.");
-        event.preventDefault():
-        }
-        });
-        </script
+    <div>
+        <label for="{{form.message.id_for_label}}">Message</label>
+        {{form.message}}
+        {{form.message.errors}}
+    </div>
+</form>
+    
 
 </body>
 </html>
