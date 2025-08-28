@@ -89,6 +89,6 @@ def home(request):
         menu_items=MenuItem.objects.filter(name_icontains=query)
     else:
         menu_items=MenuItem.objects.all()
-    return render(request,"home/home.html",{"menu_items":menu_items,"query":query})
+    return render(request,"homepage.html",{"menu_items":menu_items,"query":query})
 
 # Create your views here.
