@@ -90,5 +90,33 @@ def home(request):
     else:
         menu_items=MenuItem.objects.all()
     return render(request,"homepage.html",{"menu_items":menu_items,"query":query})
-
+def contact_view(request):
+    if request.method=="POST":
+        form=ContactForm(request.POST)
+        if form.is_valid()
+        contact=from.save()
+        subject=form.cleaned_data.get("subject")or "New Contact From submission"
+        body=(
+            f"New message from your website:\n\n"
+            f"Name:{contact.name}\n"
+            f"Email:{contact.email}\n"
+            f"Subject:{contact.subject}\n\n"
+            f"Message:\n{contact.message}\n"
+        )
+        to_email=getattr(settings,"CONTCAT_RECEIVER_EMAIL",None)
+        if not to_email:
+            messages.error(request,"Email not configured.please set CONTACT_RECIVER_EMAIL.")
+        else:
+            send_mail(
+                subject=subject,
+                message=body,
+                from_eamil=getattr(settings."DEFAULT_)FROM_EMAIL",None),
+                recipient_list=[to_email],
+                fail_silently=False,
+            )
+            message.success(request,"Thanks! your messagehas been sent.")
+            return redirect("contact")
+    else:
+        form=ContactForm()
+    return render(request,"home/contact.html",{"form":form})
 # Create your views here.
