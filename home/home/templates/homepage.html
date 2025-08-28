@@ -11,16 +11,7 @@
     <p>Welcome to {{restaurant.name}}!Enjoy your meal.</p>
     <p>Call us:{{restaurant.phone}}</p>
     <body style="font-family:Arial, sans-serif; background-color:#f8f9fa;margin:0;padding:0;">
-        <form method="GET" action='#' class="search-bar" style="margin:20px 0";text-align:"center">
-            <input type="text"
-                   name="q"
-                   placeholder="search menu items..."
-                   style="padding:10px;width:250px; border-radius:8px; border:1px solid #ccc;">
-            <button type="submit"
-                    style="padding:10px 15px;border:none;background-color:#4CAF50;color:white; border-radius:8px; cursor:pointer;">
-                search
-            </button>
-        </form>
+        
 
         <header>
             <nav>
@@ -30,6 +21,17 @@
             </nav>
             <h1>Welcome to our Restaurant</h1>
         </header>
+        <form method="GET" action="{% url 'homepage' %}" class="=search-bar" style="margin:20px 0; text-align:center;">
+            <input type="text"
+                    name="q"
+                    placeholder="search menu items..."
+                    value="{{query|default:''}}"
+                    style="padding: 10px;width:250px; boredr-radius:8px; border:1px solid #ccc;">
+                <button type="submit"
+                   style="padding:10px 15px;border:none; background-color:#4CAF50;color:white;border-radius:8px;cursor:pointer;">
+                   search
+                </button>
+        </form>
 
         <section id="menu">
             <h2>Our Menu</h2>
