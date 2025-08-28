@@ -132,3 +132,6 @@ MEDIA_ROOT=BASE_DIR /'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 RESTAURANT_NAME="Delicious Bites"
+EMAIL_BACKEND="django.core.mail.backends.console.EamilBackend"
+DEFAULT_FROM_EMAIL="no-reply@restaurant.example"
+CONTACT_RECIVER_EMAIL="owner@example.com"
