@@ -65,6 +65,18 @@
                 </iframe>
             </div>
         </section>
+        <section id="opening-hours">
+            <h2>Opening Hours</h2>
+            {% if restaurant.opening-hours%}
+            <ul>
+                {% for day, hours in restaurant.opening-hours.items %}
+                    <li><strong>{{day}}:</strong>{{hours}}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p> Opening hours not available</p>
+            {% endif %}
+        </section>
 
         <section id="contact">
             <h2>Contact US</h2>
