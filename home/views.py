@@ -83,6 +83,12 @@ def homepage(request):
             'menu_items':menu_items,
             'form':form,
         })
-
+def home(request):
+    query=request.GET.get("q")
+    if query:
+        menu_items=MenuItem.objects.filter(name_icontains=query)
+    else:
+        menu_items=MenuItem.objects.all()
+    return render(request,"home/home.html",{"menu_items":menu_items,"query":query})
 
 # Create your views here.
