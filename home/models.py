@@ -13,7 +13,7 @@ class RestaurantInfo(models.Model):
     name=models.CharField(max_length=100)
     phone=models.CharField(max_length=15)
     address=models.TextField(blank=True,null=True)
-    opening_hours=models.JSONFiled(default=dict,blank=True,null=True)
+    opening_hours=models.JSONField(default=dict,blank=True,null=True)
     def __str__(self):
         return self.name
 class Contact(models.Model):
@@ -29,7 +29,7 @@ class Contact(models.Model):
 class MenuItem(models.Model):
     name=models.CharField(max_length=100)
     description=models.TextField(blank=True)
-    price=models.DecimalField(max_digit=6,decmial_places=2)
+    price=models.DecimalField(max_digits=6,decimal_places=2)
     image=models.ImageField(uplod_to="menu_images/",blank=true,null=True)
     def __str__(self):
         return self.name
